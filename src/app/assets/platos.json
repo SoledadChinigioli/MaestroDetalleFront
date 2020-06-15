@@ -1,0 +1,31 @@
+{
+    "platos": [
+        {
+            "id":1,
+            "nombre":"Pizza Especial",
+            "precio": 120
+        },
+        {
+            "id": 2,
+            "nombre":"Empanadas Docena",
+            "precio":150
+        },
+        {
+            "id":3,
+            "nombre":"Lomo Completo",
+            "precio":130
+          
+        },
+        {
+            "id":4,
+            "nombre":"Mini Hamburguesa",
+            "precio":100
+            
+        },
+        {
+            "id":5,
+            "nombre":"Cerveza Deibeer",
+            "precio":140
+        }
+    ]
+}

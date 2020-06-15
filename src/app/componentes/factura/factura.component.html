@@ -1,0 +1,107 @@
+<div class="jumbotron">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><h2 class="display-4">El Buen Sabor</h2></th>
+          <th scope="col"><strong><h1>C</h1></strong>N° 0010101</th>
+          <th scope="col"><h5><strong>N° Recibo:</strong> 004321</h5><h5><strong>Fecha: </strong> 2020</h5></th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CUIT: </strong> 20-1234567-7</td>  
+        </tr>
+        <tr>
+          <td><strong>R.S: </strong> El Buen Sabor</td>
+         </tr>
+        <tr>
+          <td><strong>Dirección: </strong> Calle Orégano 123</td> 
+        </tr>
+      </tbody>
+    </table>
+    <hr class="my-4">
+    <p class="lead"><strong>Cliente: </strong> Anónimo</p>
+    <p class="lead"><strong>Dirección: </strong> Calle Falsa 123</p>
+    <hr class="my-4">
+    <!-- -------------------------------------------------- -->
+    <div class="row">
+      <div class="col-12">
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th scope="col">Descripción</th>
+                      <th scope="col">Unidad</th>
+                      <th scope="col">Precio Unitario</th>
+                      <th scope="col">Precio Total</th>
+                      <th scope="col">Acciones</th>
+                      <th scope="col">&nbsp;</th>
+                 </tr>
+              </thead>
+              <tbody>
+                  <tr > 
+                    <!-- *ngFor="let persona of personas" -->
+                      <th scope="row">
+                        <div class="form-group">
+                          <select [(ngModel)]="platoSeleccionado" name="platoSeleccionado" class="selectIngr" (change)="buscarPrecio()"  >
+                            <option value="0">
+                              Seleccione plato
+                            </option>
+                            <option *ngFor="let p of listaPlatos" [ngValue]="p" (change)="buscarPrecio()">
+                              {{p.nombre}}
+                            </option>
+                          </select>
+                        </div>
+                      </th>
+                      <td><input (change)="calcularPrecio()" [(ngModel)]="unidades" type="number" min="1" max="100"/></td>
+                      <td>{{precioSeleccionado}}</td>
+                      <!--  -->
+                      <td>{{precioTotal}}</td>
+                      <td>
+                          <button type="button" class="btn btn-danger" (click)="limpiarDetalle()">Limpiar Detalle</button>
+                      </td>
+                      <td> <button type="button" class="btn btn-info" (click)="agregarDetalle()">Agregar Detalle</button></td>
+                  </tr>
+              </tbody>
+          </table>
+<!-- -------------------------------------------------- -->
+<hr>
+<h3>Detalle Factura</h3> 
+<div class="row">
+          <div class="col-12">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Unidad</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Precio Total</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let detalle of listaDetalles">
+                      <th scope="row">{{detalle.plato.nombre}}</th>
+                      <td>{{detalle.cantidad}}</td>
+                      <td>{{detalle.precioUnitario}}</td>
+                      <td>{{detalle.precioTotal}}</td>
+                          
+                          <td>
+                              <button type="button" class="btn btn-danger" (click)="eliminarDetalle(detalle)">Eliminar</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+<!-- -------------------------------------------------- -->
+<hr>
+<h3>Total a Pagar: $ {{totalFactura}}</h3>
+
+      </div>
+  </div>
+    <!-- -------------------------------------------------- -->
+   
+  </div>
+
+ 
